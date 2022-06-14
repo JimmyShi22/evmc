@@ -131,3 +131,6 @@ set(
     /target/
 )
 cable_add_archive_package()
+
+set(CMAKE_CXX_FLAGS -fexceptions ${CMAKE_CXX_FLAGS})
+set(CMAKE_C_FLAGS -fexceptions ${CMAKE_C_FLAGS})
