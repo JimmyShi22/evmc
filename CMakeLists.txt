@@ -20,6 +20,9 @@ include(CablePackage)
 include(CMakeDependentOption)
 include(CMakePackageConfigHelpers)
 
+set(CMAKE_CXX_FLAGS "-fexceptions --verbose ${CMAKE_CXX_FLAGS}")
+set(CMAKE_C_FLAGS "-fexceptions --verbose ${CMAKE_C_FLAGS}")
+
 option(EVMC_JAVA "Enable building Java Native Interface (JNI) bindings" OFF)
 
 option(EVMC_INSTALL "Enable EVMC installation (e.g. make install)" ON)
@@ -74,6 +77,7 @@ elseif(CABLE_COMPILER_GNU)
 endif()
 
 set(EVMC_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
+
 
 add_subdirectory(lib)
 
@@ -131,6 +135,3 @@ set(
     /target/
 )
 cable_add_archive_package()
-
-set(CMAKE_CXX_FLAGS -fexceptions ${CMAKE_CXX_FLAGS})
-set(CMAKE_C_FLAGS -fexceptions ${CMAKE_C_FLAGS})
